@@ -1,0 +1,11 @@
+{
+	"folders": [
+		{
+			"name": "プログラミング課題",
+			"path": "../../../../../.."
+		}
+	],
+	"settings": {
+		"java.configuration.updateBuildConfiguration": "interactive"
+	}
+}
