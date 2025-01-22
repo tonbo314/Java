@@ -46,15 +46,20 @@ public class SecondaryController implements Initializable{
         App.setRoot("primary");
     }
 
-    //曲の再生時間が100ミリ秒より大きいなら初めから再生
+    //曲の再生時間が1000ミリ秒(1秒)より大きいなら初めから再生
     //1秒以下なら前の曲に戻る
+    //msが邪魔なのでreplaceで""に置き換え
     @FXML
     private void backMusic() throws IOException{
-        if(Long.parseLong(m.getCurrentTime().toString()) > 100.0){
+        if(Double.parseDouble(m.getCurrentTime().toString().replace("m", "").replace("s", "").replace(" ", "")) > 1000.0){
             m.stop();
             m.play();
         }else{
             number--;
+            //一曲目まで戻った時用
+            if(number<1){
+                number = 1;
+            }
             r = new Media(new File("RADWIMPS/" + App.root.get("RADWIMPS").get(number).get("title") + ".m4a").toURI().toString());
             m = new MediaPlayer(r);
         }
