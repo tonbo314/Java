@@ -13,7 +13,7 @@
     <children>
       <AnchorPane prefHeight="480.0" prefWidth="640.0">
          <children>
-            <TextArea fx:id="text" editable="false" layoutX="248.0" layoutY="287.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="26.0" prefWidth="94.0" />
+            <TextArea fx:id="text" editable="false" layoutX="432.0" layoutY="253.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="26.0" prefWidth="94.0" />
               <Button fx:id="secondaryButton" layoutX="20.0" layoutY="14.0" onAction="#switchToPrimary" prefHeight="26.0" prefWidth="102.0" text="Switch to Primary View" />
             <ImageView fx:id="albamView" fitHeight="174.0" fitWidth="189.0" layoutX="207.0" layoutY="64.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -25,6 +25,8 @@
             <Button layoutX="413.0" layoutY="326.0" mnemonicParsing="false" onAction="#nextMusic" text="▶️▶️" />
             <Slider fx:id="slider" blockIncrement="0.0" layoutX="175.0" layoutY="258.0" majorTickUnit="10.0" max="1.0" minorTickCount="0" onMouseReleased="#sliderChenger" prefHeight="16.0" prefWidth="239.0" />
             <Button layoutX="328.0" layoutY="326.0" mnemonicParsing="false" onAction="#musicTopause" prefHeight="26.0" prefWidth="39.0" text="  ◾️  " />
+            <Slider fx:id="vslider" blockIncrement="0.0" layoutX="232.0" layoutY="291.0" majorTickUnit="10.0" max="1.0" minorTickCount="0" onMouseReleased="#vsliderChenger" prefHeight="16.0" prefWidth="137.0" />
+            <TextArea fx:id="vtext" editable="false" layoutX="432.0" layoutY="286.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="26.0" prefWidth="94.0" />
          </children>
       </AnchorPane>
     </children>

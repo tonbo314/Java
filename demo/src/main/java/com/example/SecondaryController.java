@@ -13,17 +13,13 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.util.*;
 import javafx.beans.value.*;
 
 
 public class SecondaryController implements Initializable{
-    int number = PrimaryController.jsonnumber;
-    //jsonnumberで何番めの曲のタイトルかを指定して、.mp4をくっつける
-    Media r = new Media(new File("RADWIMPS/" + App.root.get("RADWIMPS").get(number).get("title") + ".m4a").toURI().toString());
-    MediaPlayer m = new MediaPlayer(r);
-    
     @FXML
     private ImageView albamView;
 
@@ -35,6 +31,27 @@ public class SecondaryController implements Initializable{
 
     @FXML
     private TextArea text;
+
+    @FXML
+    private Slider vslider;
+
+    @FXML
+    private TextArea vtext;
+
+    int number = PrimaryController.jsonnumber;
+    //jsonnumberで何番めの曲のタイトルかを指定して、.mp4をくっつける
+    Media r = new Media(new File("RADWIMPS/" + App.root.get("RADWIMPS").get(number).get("title") + ".m4a").toURI().toString());
+    MediaPlayer m = new MediaPlayer(r);
+    Image image;
+
+    //親クラスのメソッドを継承している、スペルミスを防ぐためのOverride
+    //initializeメソッドはcontrollerを初期化するために呼ばれるメソッドで、sceneをstageに追加する前に呼ばれるもの
+    //音量のテキストをbindで連動させる
+    //albamViewの画像を設定する
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle){ 
+        this.vtext.textProperty().bind(this.m.volumeProperty().asString("%.2f"));
+    }
 
     //音楽再生用
     @FXML
@@ -105,12 +122,10 @@ public class SecondaryController implements Initializable{
         m.seek(javafx.util.Duration.seconds(slider.getValue()));
     }
 
-    //親クラスのメソッドを継承している、スペルミスを防ぐためのOverride
-    //initializeメソッドはcontrollerを初期化するために呼ばれるメソッドで、sceneをstageに追加する前に呼ばれるもの
-    //albamViewの画像を設定する
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle){ 
-        
+    //スライダーを操作されると音量を変化させる
+    @FXML
+    private void vsliderChenger() throws IOException{
+        this.m.volumeProperty().bind(this.vslider.valueProperty());
     }
 
     //スライダーをスライドさせている最中orスライダーをクリックしている場合はtrueを返す
