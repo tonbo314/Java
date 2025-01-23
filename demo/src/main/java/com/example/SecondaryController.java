@@ -71,24 +71,21 @@ public class SecondaryController implements Initializable{
         App.setRoot("primary");
     }
 
-    //曲の再生時間が1000ミリ秒(1秒)より大きいなら初めから再生
-    //1秒以下なら前の曲に戻る
+    //曲の再生時間が2000ミリ秒(1秒)より大きいなら初めから再生
+    //2秒以下なら前の曲に戻る
     //msが邪魔なのでreplaceで""に置き換え
     @FXML
     private void backMusic() throws IOException{
-        if(Double.parseDouble(m.getCurrentTime().toString().replace("m", "").replace("s", "").replace(" ", "")) > 1000.0){
+        if(Double.parseDouble(m.getCurrentTime().toString().replace("m", "").replace("s", "").replace(" ", "")) > 2000.0){
             m.stop();
-            m.play();
         }else{
-            number--;
             //1曲目まで戻った時用
-            if(number==0){
-                number = 1;
+            if(number!=0){
+                number--;
             }
             m.stop();
             r = new Media(new File("RADWIMPS/" + App.root.get("RADWIMPS").get(number).get("title") + ".m4a").toURI().toString());
             m = new MediaPlayer(r);
-            musicToplay();
         }
     }
 
@@ -96,9 +93,9 @@ public class SecondaryController implements Initializable{
     @FXML
     private void nextMusic() throws IOException{
         number++;
+        m.stop();
         r = new Media(new File("RADWIMPS/" + App.root.get("RADWIMPS").get(number).get("title") + ".m4a").toURI().toString());
         m = new MediaPlayer(r);
-        musicToplay();
     }
 
     //スライダーを操作されるとシークする

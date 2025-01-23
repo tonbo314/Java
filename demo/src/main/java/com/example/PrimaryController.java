@@ -39,7 +39,7 @@ public class PrimaryController implements Initializable{
 
     int music() throws IOException{
         for(int i=0;i<13;i++){
-            //取得した曲名と同じ曲名かどうかを全探査
+            //取得した曲名と同じ曲名かどうかを全探査(""があるといけないので消す)
             if(musicchoice.getValue().equals(App.root.get("RADWIMPS").get(i).get("title").toString().replace("\"",""))){
                 //一致した数を返す
                 return i;
