@@ -45,6 +45,6 @@ public class PrimaryController implements Initializable{
                 return i;
             }
         }
-        return 9;
+        return 0;
     }
 }

@@ -1,16 +1,16 @@
 
 {"RADWIMPS":[
-        { "title" : "01 人生 出会い",  "time" : "5:42", "image" : "" },
-        { "title" : "02 自暴自棄自己中心的(思春期)自己依存症の少年",  "time" : "4:37", "image" : ""},
-        { "title" : "03 心臓",  "time" : "6:18", "image" : "" },
-        { "title" : "04 もしも「みんな一緒に」バージョン",  "time" : "5:38", "image" : "" },
-        { "title" : "05 さみしい僕",  "time" : "4:21", "image" : "" },
-        { "title" : "06 コンドーム",  "time" : "4:54", "image" : "" },
-        { "title" : "07 青い春",  "time" : "4:07", "image" : "" },
-        { "title" : "08 「ぼく」と「僕」",  "time" : "2:56", "image" : "" },
-        { "title" : "09 あいまい",  "time" : "2:59", "image" : "" },
-        { "title" : "10 嫌ん",  "time" : "5:57", "image" : "" },
-        { "title" : "11 「ずっと大好きだよ」「ほんと?...」",  "time" : "6:43", "image" : "" },
-        { "title" : "12 愛へ",  "time" : "5:00", "image" : "" },
-        { "title" : "13 あいラブユー",  "time" : "3:02", "image" : "" }
+        { "title" : "01 人生 出会い",  "time" : "5:42", "image" : "view1" },
+        { "title" : "02 自暴自棄自己中心的(思春期)自己依存症の少年",  "time" : "4:37", "image" : "view1"},
+        { "title" : "03 心臓",  "time" : "6:18", "image" : "view1" },
+        { "title" : "04 もしも「みんな一緒に」バージョン",  "time" : "5:38", "image" : "view1" },
+        { "title" : "05 さみしい僕",  "time" : "4:21", "image" : "view1" },
+        { "title" : "06 コンドーム",  "time" : "4:54", "image" : "view1" },
+        { "title" : "07 青い春",  "time" : "4:07", "image" : "view1" },
+        { "title" : "08 「ぼく」と「僕」",  "time" : "2:56", "image" : "view1" },
+        { "title" : "09 あいまい",  "time" : "2:59", "image" : "view1" },
+        { "title" : "10 嫌ん",  "time" : "5:57", "image" : "view1" },
+        { "title" : "11 「ずっと大好きだよ」「ほんと?...」",  "time" : "6:43", "image" : "view1" },
+        { "title" : "12 愛へ",  "time" : "5:00", "image" : "view1" },
+        { "title" : "13 あいラブユー",  "time" : "3:02", "image" : "view1" }
         ]}

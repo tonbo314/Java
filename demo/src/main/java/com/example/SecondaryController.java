@@ -21,7 +21,10 @@ import javafx.beans.value.*;
 
 public class SecondaryController implements Initializable{
     @FXML
-    private ImageView albamView;
+    private ImageView view1;
+
+    @FXML
+    private ImageView view2;
 
     @FXML
     private Button secondaryButton;
@@ -38,26 +41,29 @@ public class SecondaryController implements Initializable{
     @FXML
     private TextArea vtext;
 
+    //ジャケ写の種類別配列
+    String image[] = {"view1","view2"};
     int number = PrimaryController.jsonnumber;
     //jsonnumberで何番めの曲のタイトルかを指定して、.mp4をくっつける
     Media r = new Media(new File("RADWIMPS/" + App.root.get("RADWIMPS").get(number).get("title") + ".m4a").toURI().toString());
     MediaPlayer m = new MediaPlayer(r);
-    Image image;
-
     //親クラスのメソッドを継承している、スペルミスを防ぐためのOverride
     //initializeメソッドはcontrollerを初期化するために呼ばれるメソッドで、sceneをstageに追加する前に呼ばれるもの
     //音量のテキストをbindで連動させる
     //音量スライダーの初期値を右端に
-    //albamViewの画像を設定する
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle){ 
         this.vtext.textProperty().bind(this.m.volumeProperty().asString("%.2f"));
         this.vslider.setValue(1.0);
+        view1.setVisible(false);
+        view2.setVisible(false);
+        setView();
     }
 
     //音楽再生用
     @FXML
     private void musicToplay() throws IOException{
+        setView();
         //スライダーに始めと終わりのタイムを設定
         slider.setMin( m.getStartTime().toSeconds() );
         slider.setMax( m.getStopTime().toSeconds() );
@@ -82,6 +88,7 @@ public class SecondaryController implements Initializable{
                 m.stop();
                 r = new Media(new File("RADWIMPS/" + App.root.get("RADWIMPS").get(number).get("title") + ".m4a").toURI().toString());
                 m = new MediaPlayer(r);
+                m.stop();
                 musicToplay();
             } catch (Exception e) { 
                 System.out.println(e);
@@ -144,6 +151,25 @@ public class SecondaryController implements Initializable{
         this.m.volumeProperty().bind(this.vslider.valueProperty());
     }
 
+    private int setView(){
+        for(int i=0;i<image.length;i++){
+            //取得したジャケ写と同じものかどうかを全探査(""があるといけないので消す)
+            if(App.root.get("RADWIMPS").get(number).get("image").toString().replace("\"","").equals(image[i])){
+                //一致したものを表示
+                switch(i){
+                    case 0:
+                        view1.setVisible(true);
+                        break;
+                    case 1:
+                        view2.setVisible(true);
+                        break;
+                    default:
+                        break;
+                }
+            }
+        }
+        return 1;
+    }
     //スライダーをスライドさせている最中orスライダーをクリックしている場合はtrueを返す
     private boolean seekSliderIsChanging() {
         return this.slider.isValueChanging() || this.slider.isPressed();
