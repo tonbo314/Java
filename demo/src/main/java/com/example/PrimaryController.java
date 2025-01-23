@@ -24,17 +24,17 @@ public class PrimaryController implements Initializable{
 
     @FXML
     void switchToSecondary() throws IOException{
-        jsonnumber = music();
         //何番めの曲かの番号
-        App.setRoot("secondary");
+        jsonnumber = music();
         //どのfxmlをroot(画面に表示するもの)にするかの設定
+        App.setRoot("secondary");
     }
 
     //親クラスのメソッドを継承している、スペルミスを防ぐためのOverride
     //initializeメソッドはcontrollerを初期化するために呼ばれるメソッドで、sceneをstageに追加する前に呼ばれるもの
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle){ 
-        musicchoice.getItems().addAll("01 人生 出会い","02 自暴自棄自己中心的(思春期)自己依存症の少年","03 心臓","04 もしも「みんな一緒に」バージョン","05 さみしい僕","06 コンドーム","07 「ぼく」と「僕」","08 あいまい","09 嫌ん","10 「ずっと大好きだよ」「ほんと?...」","11 愛へ","12 あいラブユー");
+        musicchoice.getItems().addAll("01 人生 出会い","02 自暴自棄自己中心的(思春期)自己依存症の少年","03 心臓","04 もしも「みんな一緒に」バージョン","05 さみしい僕","06 コンドーム","07 青い春","08 「ぼく」と「僕」","09 あいまい","10 嫌ん","11 「ずっと大好きだよ」「ほんと?...」","12 愛へ","13 あいラブユー");
     }
 
     int music() throws IOException{
@@ -45,6 +45,6 @@ public class PrimaryController implements Initializable{
                 return i;
             }
         }
-        return 0;
+        return 9;
     }
 }

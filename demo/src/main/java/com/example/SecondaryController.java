@@ -47,10 +47,12 @@ public class SecondaryController implements Initializable{
     //親クラスのメソッドを継承している、スペルミスを防ぐためのOverride
     //initializeメソッドはcontrollerを初期化するために呼ばれるメソッドで、sceneをstageに追加する前に呼ばれるもの
     //音量のテキストをbindで連動させる
+    //音量スライダーの初期値を右端に
     //albamViewの画像を設定する
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle){ 
         this.vtext.textProperty().bind(this.m.volumeProperty().asString("%.2f"));
+        this.vslider.setValue(1.0);
     }
 
     //音楽再生用
@@ -72,6 +74,19 @@ public class SecondaryController implements Initializable{
                 slider.setValue( m.getCurrentTime().toSeconds() );
             }
         };
+        //なぜかtry,catchじゃないとエラー出る
+        //連続再生の処理部分
+        this.m.setOnEndOfMedia(() -> {
+            try {
+                number++;
+                m.stop();
+                r = new Media(new File("RADWIMPS/" + App.root.get("RADWIMPS").get(number).get("title") + ".m4a").toURI().toString());
+                m = new MediaPlayer(r);
+                musicToplay();
+            } catch (Exception e) { 
+                System.out.println(e);
+            }
+        });
         //mの現在時間をプロパティとして、それに変化が起こったらplayListenerが呼び出されるように設定
         m.currentTimeProperty().addListener(playListener);
         m.play();
@@ -85,6 +100,7 @@ public class SecondaryController implements Initializable{
 
     @FXML
     private void switchToPrimary() throws IOException {
+        //どのfxmlをroot(画面に表示するもの)にするかの設定
         App.setRoot("primary");
     }
 
