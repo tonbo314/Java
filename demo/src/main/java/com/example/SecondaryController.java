@@ -23,7 +23,7 @@ public class SecondaryController implements Initializable{
 
     //選択されたアルバム名
     //楽する用に定義しておく
-    String al = PrimaryController.albam;
+    public static String al = PrimaryController.albam;
     
     @FXML
     private ImageView view1;
@@ -51,7 +51,7 @@ public class SecondaryController implements Initializable{
 
     //ジャケ写の種類別配列
     String image[] = {"view1","view2","view3"};
-    int number = PrimaryController.jsonnumber;
+    public static int number = PrimaryController.jsonnumber;
     //jsonnumberで何番めの曲のタイトルかを指定して、.mp4をくっつける
     Media r = new Media(new File(al + "/" + App.root.get(al).get(number).get("title") + ".m4a").toURI().toString());
     MediaPlayer m = new MediaPlayer(r);
@@ -93,6 +93,10 @@ public class SecondaryController implements Initializable{
         this.m.setOnEndOfMedia(() -> {
             try {
                 number++;
+                //ランダム用
+                if(PrimaryController.hantei){
+                    PrimaryController.random();
+                }
                 m.stop();
                 r = new Media(new File(al + "/" + App.root.get(al).get(number).get("title") + ".m4a").toURI().toString());
                 m = new MediaPlayer(r);
@@ -115,6 +119,8 @@ public class SecondaryController implements Initializable{
 
     @FXML
     private void switchToPrimary() throws IOException {
+        //ランダム再生の判定をリセット
+        PrimaryController.hantei = false;
         //どのfxmlをroot(画面に表示するもの)にするかの設定
         App.setRoot("primary");
     }
@@ -142,6 +148,10 @@ public class SecondaryController implements Initializable{
     private void nextMusic() throws IOException{
         number++;
         m.stop();
+        //ランダム用
+        if(PrimaryController.hantei){
+            PrimaryController.random();
+        }
         r = new Media(new File(al + "/" + App.root.get(al).get(number).get("title") + ".m4a").toURI().toString());
         m = new MediaPlayer(r);
     }
@@ -163,6 +173,7 @@ public class SecondaryController implements Initializable{
     private int setView(){
         view1.setVisible(false);
         view2.setVisible(false);
+        view3.setVisible(false);
         for(int i=0;i<image.length;i++){
             //取得したジャケ写と同じものかどうかを全探査(""があるといけないので消す)
             if(App.root.get(al).get(number).get("image").toString().replace("\"","").equals(image[i])){
@@ -174,6 +185,8 @@ public class SecondaryController implements Initializable{
                     case 1:
                         view2.setVisible(true);
                         break;
+                    case 2:
+                        view3.setVisible(true);
                     default:
                         break;
                 }

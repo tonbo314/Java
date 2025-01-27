@@ -32,17 +32,17 @@
         {"title" : "14 ララバイ", "time" : "2:50", "image" : "view2"}
         ],
 "narimi":[
-        {"title" : "01 アフターアワー", "time" : "2:24", "image" : ""},
-        {"title" : "02 元彼氏として", "time" : "2:56", "image" : ""},
-        {"title" : "03 ドラマみたいだ", "time" : "3:20", "image" : ""},
-        {"title" : "04 白熱灯、焼ける朝", "time" : "3:47", "image" : ""},
-        {"title" : "05 彼氏として", "time" : "3:40", "image" : ""},
-        {"title" : "06 夜行バス", "time" : "4:28", "image" : ""},
-        {"title" : "07 マイハッピーウェディング", "time" : "2:50", "image" : ""},
-        {"title" : "08 友達になりたい", "time" : "2:25", "image" : ""},
-        {"title" : "09 教室とさよなら", "time" : "2:52", "image" : ""},
-        {"title" : "10 ふたり", "time" : "6:29", "image" : ""},
-        {"title" : "11 18歳よ", "time" : "3:10", "image" : ""},
-        {"title" : "12 優しさの行方", "time" : "3:48", "image" : ""}
+        {"title" : "01 アフターアワー", "time" : "2:24", "image" : "view3"},
+        {"title" : "02 元彼氏として", "time" : "2:56", "image" : "view3"},
+        {"title" : "03 ドラマみたいだ", "time" : "3:20", "image" : "view3"},
+        {"title" : "04 白熱灯、焼ける朝", "time" : "3:47", "image" : "view3"},
+        {"title" : "05 彼氏として", "time" : "3:40", "image" : "view3"},
+        {"title" : "06 夜行バス", "time" : "4:28", "image" : "view3"},
+        {"title" : "07 マイハッピーウェディング", "time" : "2:50", "image" : "view3"},
+        {"title" : "08 友達になりたい", "time" : "2:25", "image" : "view3"},
+        {"title" : "09 教室とさよなら", "time" : "2:52", "image" : "view3"},
+        {"title" : "10 ふたり", "time" : "6:29", "image" : "view3"},
+        {"title" : "11 18歳よ", "time" : "3:10", "image" : "view3"},
+        {"title" : "12 優しさの行方", "time" : "3:48", "image" : "view3"}
         ]
 }

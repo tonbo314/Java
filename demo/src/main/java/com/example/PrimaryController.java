@@ -1,5 +1,6 @@
 package com.example;
 
+import java.util.Random;
 import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
@@ -7,6 +8,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.Label;
 
 import java.io.IOException;
 import java.net.*;
@@ -19,12 +21,28 @@ public class PrimaryController implements Initializable{
     //アルバム名
     public static String albam;
     //musicchoice用
-    int albamnumber;
+    public static int albamnumber;
     //アルバム名配列
-    String[] albams = {"RADWIMPS","RADWIMPS2","narimi"};
+    public static String[] albams = {"RADWIMPS","RADWIMPS2","narimi"};
+    //ランダム用
+    public static Random rand = new Random();
+    //ランダム判定用
+    public static boolean hantei;
+
+    @FXML
+    private Label choose;
+
+    @FXML
+    private Label or;
+
+    @FXML
+    private Label title;
 
     @FXML
     private Button albambutton;
+
+    @FXML
+    private Button randombutton;
 
     @FXML
     private ChoiceBox<String> albamchoice;
@@ -56,23 +74,30 @@ public class PrimaryController implements Initializable{
         musicchoiceRAD2.setVisible(false);
         musicchoicenarimi.setVisible(false);
         primaryButton.setVisible(false);
+        choose.setVisible(false);
     }
 
     @FXML
     void switchToSecondary() throws IOException{
         //何番めの曲かの番号
-        jsonnumber = music();
+        if(!hantei){
+            jsonnumber = music();
+        }
         //どのfxmlをroot(画面に表示するもの)にするかの設定
         App.setRoot("secondary");
     }
 
     //アルバム選択終わった後のメソッド
     @FXML
-    void albambutton() throws IOException{  
+    void albambutton() throws IOException{ 
+        //指示ラベルと画面移動ボタンを見えるように
         primaryButton.setVisible(true);
+        choose.setVisible(true);
         //アルバム系を見えなくする
         albamchoice.setVisible(false);
         albambutton.setVisible(false);
+        randombutton.setVisible(false);
+        or.setVisible(false);
         //アルバム名と一致するやつを探して、その曲リストを表示する
         for(int i=0;i<albams.length;i++){
             if(albamchoice.getValue().equals(albams[i])){
@@ -103,6 +128,24 @@ public class PrimaryController implements Initializable{
                 }
             }
         }
+    }
+
+    //ランダム用
+    //nextInt()で指定した値未満の整数をもらう(アルバムの数未満)
+    @FXML
+    public void randombutton() throws IOException{
+        hantei = true;
+        //画面移動ボタン以外を見えなくする
+        musicchoiceRAD.setVisible(false);
+        musicchoiceRAD2.setVisible(false);
+        musicchoicenarimi.setVisible(false);
+        albamchoice.setVisible(false);
+        albambutton.setVisible(false);
+        randombutton.setVisible(false);
+        or.setVisible(false);
+        choose.setVisible(false);
+        primaryButton.setVisible(true);
+        random();
     }
 
     //一致する曲のjsonでの番号を得る
@@ -138,5 +181,34 @@ public class PrimaryController implements Initializable{
                 break;
         }
         return 0;
+    }
+
+    //ランダム再生のやつ
+    public static void random(){
+        //乱数でアルバムを選択してalに入れておく
+        albamnumber = rand.nextInt(albams.length);
+        albam = albams[albamnumber];
+        SecondaryController.al = albam;
+        //曲数をnextInt()の中に入れて、それ未満の値でランダム
+        //その値をnumberに入れる
+        switch(albamnumber){
+            //RADWIMPS
+            case 0:
+                jsonnumber = rand.nextInt(13);
+                SecondaryController.number = jsonnumber;
+                break;
+            //REDWIMPS2
+            case 1:
+                jsonnumber = rand.nextInt(14);
+                SecondaryController.number = jsonnumber;
+                break;
+            //narimi
+            case 2:
+                jsonnumber = rand.nextInt(12);
+                SecondaryController.number = jsonnumber;
+                break;
+            default:
+                break;
+        }
     }
 }

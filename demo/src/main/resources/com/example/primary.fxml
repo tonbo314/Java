@@ -2,19 +2,37 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.PrimaryController">
    <children>
       <Pane prefHeight="482.0" prefWidth="640.0">
          <children>
+            <Label fx:id="title" layoutX="171.0" layoutY="27.0" prefHeight="68.0" prefWidth="298.0" text="music player" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS">
+               <font>
+                  <Font size="56.0" />
+               </font>
+            </Label>
             <Button fx:id="primaryButton" alignment="TOP_CENTER" layoutX="241.0" layoutY="351.0" onAction="#switchToSecondary" prefHeight="0.0" prefWidth="159.0" text="Switch to Secondary View" />
             <ChoiceBox fx:id="musicchoiceRAD" layoutX="241.0" layoutY="214.0" prefHeight="26.0" prefWidth="159.0" />
             <ChoiceBox fx:id="albamchoice" layoutX="241.0" layoutY="147.0" prefHeight="26.0" prefWidth="159.0" />
-            <Button fx:id="albambutton" alignment="TOP_CENTER" layoutX="241.0" layoutY="265.0" onAction="#albambutton" prefHeight="0.0" prefWidth="159.0" text="albam " />
+            <Button fx:id="albambutton" alignment="TOP_CENTER" layoutX="241.0" layoutY="240.0" onAction="#albambutton" prefHeight="0.0" prefWidth="159.0" text="albam " />
             <ChoiceBox fx:id="musicchoiceRAD2" layoutX="241.0" layoutY="214.0" prefHeight="26.0" prefWidth="159.0" />
             <ChoiceBox fx:id="musicchoicenarimi" layoutX="241.0" layoutY="214.0" prefHeight="26.0" prefWidth="159.0" />
+            <Button fx:id="randombutton" alignment="TOP_CENTER" layoutX="241.0" layoutY="351.0" onAction="#randombutton" prefHeight="0.0" prefWidth="159.0" text="Random" />
+            <Label fx:id="or" layoutX="198.0" layoutY="102.0" prefHeight="38.0" prefWidth="242.0" text="choose albam or random" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS">
+               <font>
+                  <Font size="23.0" />
+               </font>
+            </Label>
+            <Label fx:id="choose" layoutX="252.0" layoutY="146.0" prefHeight="26.0" prefWidth="135.0" text="choose music" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS">
+               <font>
+                  <Font size="23.0" />
+               </font>
+            </Label>
          </children>
       </Pane>
    </children>
