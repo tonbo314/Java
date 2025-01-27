@@ -148,6 +148,8 @@ public class SecondaryController implements Initializable{
     private void nextMusic() throws IOException{
         number++;
         m.stop();
+        //アルバムの最後の曲まで行った時用
+        //アルバムの最初の曲に戻る
         if((al.equals("RADWIMPS")&&(number==13))||(al.equals("RADWIMPS2")&&(number==14))||(al.equals("narimi")&&(number==12))){
             number=0;
         }
