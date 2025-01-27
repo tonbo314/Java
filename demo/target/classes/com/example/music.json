@@ -12,5 +12,37 @@
         { "title" : "10 嫌ん",  "time" : "5:57", "image" : "view1" },
         { "title" : "11 「ずっと大好きだよ」「ほんと?...」",  "time" : "6:43", "image" : "view1" },
         { "title" : "12 愛へ",  "time" : "5:00", "image" : "view1" },
-        { "title" : "13 あいラブユー",  "time" : "3:02", "image" : "view1" }
-        ]}
+        { "title" : "13 あいラブユー",  "time" : "3:02", "image" : "view1" },
+        { "title" : "10 俺色スカイ",  "time" : "4:17", "image" : "view2" }
+        ],
+"RADWIMPS2":[
+        {"title" : "01 愛し short", "time" : "1:35", "image" : "view2"},
+        {"title" : "02 なんちって", "time" : "3:20", "image" : "view2"},
+        {"title" : "03 そりゃ君が好きだから", "time" : "3:18", "image" : "view2"},
+        {"title" : "04 夢見月に何想う", "time" : "5:07", "image" : "view2"},
+        {"title" : "05 ノットビコース", "time" : "4:02", "image" : "view2"},
+        {"title" : "06 愛し", "time" : "6;34", "image" : "view2"},
+        {"title" : "07 ういんぷす学園休み時間", "time" : "0:58", "image" : "view2"},
+        {"title" : "08 ヒキコモリロリン", "time" : "4:46", "image" : "view2"},
+        {"title" : "09 着席", "time" : "0:09", "image" : "view2"},
+        {"title" : "10 俺色スカイ", "time" : "4:17", "image" : "view2"},
+        {"title" : "11 音の葉", "time" : "4:04", "image" : "view2"},
+        {"title" : "12 シリメツレツ", "time" : "3:32", "image" : "view2"},
+        {"title" : "13 祈跡", "time" : "9:03", "image" : "view2"},
+        {"title" : "14 ララバイ", "time" : "2:50", "image" : "view2"}
+        ],
+"narimi":[
+        {"title" : "01 アフターアワー", "time" : "2:24", "image" : ""},
+        {"title" : "02 元彼氏として", "time" : "2:56", "image" : ""},
+        {"title" : "03 ドラマみたいだ", "time" : "3:20", "image" : ""},
+        {"title" : "04 白熱灯、焼ける朝", "time" : "3:47", "image" : ""},
+        {"title" : "05 彼氏として", "time" : "3:40", "image" : ""},
+        {"title" : "06 夜行バス", "time" : "4:28", "image" : ""},
+        {"title" : "07 マイハッピーウェディング", "time" : "2:50", "image" : ""},
+        {"title" : "08 友達になりたい", "time" : "2:25", "image" : ""},
+        {"title" : "09 教室とさよなら", "time" : "2:52", "image" : ""},
+        {"title" : "10 ふたり", "time" : "6:29", "image" : ""},
+        {"title" : "11 18歳よ", "time" : "3:10", "image" : ""},
+        {"title" : "12 優しさの行方", "time" : "3:48", "image" : ""}
+        ]
+}

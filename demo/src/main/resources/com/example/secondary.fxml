@@ -15,11 +15,6 @@
          <children>
             <TextArea fx:id="text" editable="false" layoutX="432.0" layoutY="253.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="26.0" prefWidth="94.0" />
               <Button fx:id="secondaryButton" layoutX="20.0" layoutY="14.0" onAction="#switchToPrimary" prefHeight="26.0" prefWidth="102.0" text="Switch to Primary View" />
-            <ImageView fx:id="view1" fitHeight="174.0" fitWidth="189.0" layoutX="207.0" layoutY="64.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../../../../../../../../../../private/var/folders/gt/7_zcqb854v32zws9pn5ydx2m0000gn/T/com.apple.Photos.NSItemProvider/uuid=5E34A9B9-3B3D-4B9B-A154-520D82DAAA9A&amp;code=001&amp;library=1&amp;type=1&amp;mode=1&amp;loc=true&amp;cap=true.jpeg/IMG_1483.jpeg" />
-               </image>
-            </ImageView>
             <Button layoutX="229.0" layoutY="326.0" mnemonicParsing="false" onAction="#musicToplay" prefHeight="26.0" prefWidth="39.0" text="▶️" />
             <Button layoutX="136.0" layoutY="326.0" mnemonicParsing="false" onAction="#backMusic" text="◀️◀️" />
             <Button layoutX="413.0" layoutY="326.0" mnemonicParsing="false" onAction="#nextMusic" text="▶️▶️" />
@@ -27,9 +22,19 @@
             <Button layoutX="328.0" layoutY="326.0" mnemonicParsing="false" onAction="#musicTopause" prefHeight="26.0" prefWidth="39.0" text="  ◾️  " />
             <Slider fx:id="vslider" blockIncrement="0.0" layoutX="232.0" layoutY="291.0" majorTickUnit="10.0" max="1.0" minorTickCount="0" onMouseReleased="#vsliderChenger" prefHeight="16.0" prefWidth="137.0" />
             <TextArea fx:id="vtext" editable="false" layoutX="432.0" layoutY="286.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="26.0" prefWidth="94.0" />
-            <ImageView fx:id="view2" fitHeight="174.0" fitWidth="174.0" layoutX="207.0" layoutY="64.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="view2" fitHeight="174.0" fitWidth="174.0" layoutX="208.0" layoutY="64.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../../../../../../../../../../../private/var/folders/gt/7_zcqb854v32zws9pn5ydx2m0000gn/T/com.apple.Photos.NSItemProvider/uuid=803E644B-713D-421C-AC5E-99DAE096887B&amp;code=001&amp;library=1&amp;type=1&amp;mode=1&amp;loc=true&amp;cap=true.jpeg/IMG_4481.jpeg" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="view1" fitHeight="174.0" fitWidth="189.0" layoutX="208.0" layoutY="64.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../../../../../../../../private/var/folders/gt/7_zcqb854v32zws9pn5ydx2m0000gn/T/com.apple.Photos.NSItemProvider/uuid=5E34A9B9-3B3D-4B9B-A154-520D82DAAA9A&amp;code=001&amp;library=1&amp;type=1&amp;mode=1&amp;loc=true&amp;cap=true.jpeg/IMG_1483.jpeg" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="view3" fitHeight="174.0" fitWidth="189.0" layoutX="207.0" layoutY="64.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../../../../../../../../private/var/folders/gt/7_zcqb854v32zws9pn5ydx2m0000gn/T/com.apple.Photos.NSItemProvider/uuid=B018837E-8587-4C9C-B043-816396DB2F55&amp;code=001&amp;library=1&amp;type=1&amp;mode=1&amp;loc=true&amp;cap=true.jpeg/IMG_2508.jpeg" />
                </image>
             </ImageView>
          </children>

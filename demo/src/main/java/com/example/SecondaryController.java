@@ -20,11 +20,19 @@ import javafx.beans.value.*;
 
 
 public class SecondaryController implements Initializable{
+
+    //選択されたアルバム名
+    //楽する用に定義しておく
+    String al = PrimaryController.albam;
+    
     @FXML
     private ImageView view1;
 
     @FXML
     private ImageView view2;
+
+    @FXML
+    private ImageView view3;
 
     @FXML
     private Button secondaryButton;
@@ -42,10 +50,10 @@ public class SecondaryController implements Initializable{
     private TextArea vtext;
 
     //ジャケ写の種類別配列
-    String image[] = {"view1","view2"};
+    String image[] = {"view1","view2","view3"};
     int number = PrimaryController.jsonnumber;
     //jsonnumberで何番めの曲のタイトルかを指定して、.mp4をくっつける
-    Media r = new Media(new File("RADWIMPS/" + App.root.get("RADWIMPS").get(number).get("title") + ".m4a").toURI().toString());
+    Media r = new Media(new File(al + "/" + App.root.get(al).get(number).get("title") + ".m4a").toURI().toString());
     MediaPlayer m = new MediaPlayer(r);
     //親クラスのメソッドを継承している、スペルミスを防ぐためのOverride
     //initializeメソッドはcontrollerを初期化するために呼ばれるメソッドで、sceneをstageに追加する前に呼ばれるもの
@@ -86,7 +94,7 @@ public class SecondaryController implements Initializable{
             try {
                 number++;
                 m.stop();
-                r = new Media(new File("RADWIMPS/" + App.root.get("RADWIMPS").get(number).get("title") + ".m4a").toURI().toString());
+                r = new Media(new File(al + "/" + App.root.get(al).get(number).get("title") + ".m4a").toURI().toString());
                 m = new MediaPlayer(r);
                 m.stop();
                 musicToplay();
@@ -124,7 +132,7 @@ public class SecondaryController implements Initializable{
                 number--;
             }
             m.stop();
-            r = new Media(new File("RADWIMPS/" + App.root.get("RADWIMPS").get(number).get("title") + ".m4a").toURI().toString());
+            r = new Media(new File(al + "/" + App.root.get(al).get(number).get("title") + ".m4a").toURI().toString());
             m = new MediaPlayer(r);
         }
     }
@@ -134,7 +142,7 @@ public class SecondaryController implements Initializable{
     private void nextMusic() throws IOException{
         number++;
         m.stop();
-        r = new Media(new File("RADWIMPS/" + App.root.get("RADWIMPS").get(number).get("title") + ".m4a").toURI().toString());
+        r = new Media(new File(al + "/" + App.root.get(al).get(number).get("title") + ".m4a").toURI().toString());
         m = new MediaPlayer(r);
     }
 
@@ -151,10 +159,13 @@ public class SecondaryController implements Initializable{
         this.m.volumeProperty().bind(this.vslider.valueProperty());
     }
 
+    //ジャケ写用
     private int setView(){
+        view1.setVisible(false);
+        view2.setVisible(false);
         for(int i=0;i<image.length;i++){
             //取得したジャケ写と同じものかどうかを全探査(""があるといけないので消す)
-            if(App.root.get("RADWIMPS").get(number).get("image").toString().replace("\"","").equals(image[i])){
+            if(App.root.get(al).get(number).get("image").toString().replace("\"","").equals(image[i])){
                 //一致したものを表示
                 switch(i){
                     case 0:
@@ -180,7 +191,6 @@ public class SecondaryController implements Initializable{
         long millis = (long) duration.toMillis();
         long minutes = (millis / 60_000) % 60;
         long seconds = (millis / 1_000) % 60;
-
         return String.format("%02d:%02d", minutes, seconds);
     }
 }
