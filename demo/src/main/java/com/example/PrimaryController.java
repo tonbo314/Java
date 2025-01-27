@@ -66,8 +66,8 @@ public class PrimaryController implements Initializable{
         //アルバム用
         albamchoice.getItems().addAll("RADWIMPS","RADWIMPS2","narimi");
         //楽曲選択用
-        musicchoiceRAD.getItems().addAll("01 人生 出会い","02 自暴自棄自己中心的(思春期)自己依存症の少年","03 心臓","04 もしも「みんな一緒に」バージョン","05 さみしい僕","06 コンドーム","07 青い春","08 「ぼく」と「僕」","09 あいまい","10 嫌ん","11 「ずっと大好きだよ」「ほんと?...」","12 愛へ","13 あいラブユー","10 俺色スカイ");
-        musicchoiceRAD2.getItems().addAll("01 愛し short","02 なんちって","03 そりゃ君が好きだから","04 夢見月に何想う","05 ノットビコース","06 愛し","07 ういんぷす学園休み時間","08 ヒキコモリロリン","09 着席","10 俺色スカイ","11 音の葉","12 シリメツレツ","13 祈跡","14 ララバイ");
+        musicchoiceRAD.getItems().addAll("01 人生 出会い","02 自暴自棄自己中心的(思春期)自己依存症の少年","03 心臓","04 もしも「みんな一緒に」バージョン","05 さみしい僕","06 コンドーム","07 青い春","08 「ぼく」と「僕」","09 あいまい","10 嫌ん","11 「ずっと大好きだよ」「ほんと?…」","12 愛へ","13 あいラブユー");
+        musicchoiceRAD2.getItems().addAll("01 愛し short","02 なんちって","03 そりゃ君が好きだから","04 夢見月に何思う","05 ノットビコーズ","06 愛し","07 ういんぷす学園休み時間","08 ヒキコモリロリン","09 着席","10 俺色スカイ","11 音の葉","12 シリメツレツ","13 祈跡","14 ララバイ");
         musicchoicenarimi.getItems().addAll("01 アフターアワー","02 元彼氏として","03 ドラマみたいだ","04 白熱灯、焼ける朝","05 彼氏として","06 夜行バス","07 マイハッピーウェディング","08 友達になりたい","09 教室とさよなら","10 ふたり","11 18歳よ","12 優しさの行方");
         //始めは見えないようにしておく
         musicchoiceRAD.setVisible(false);
@@ -81,7 +81,10 @@ public class PrimaryController implements Initializable{
     void switchToSecondary() throws IOException{
         //何番めの曲かの番号
         if(!hantei){
+            //Secondaryに一回行ってから戻ってきた時のためにここからal,numberを設定できるようにする
+            SecondaryController.al = albam;
             jsonnumber = music();
+            SecondaryController.number = jsonnumber;
         }
         //どのfxmlをroot(画面に表示するもの)にするかの設定
         App.setRoot("secondary");
@@ -178,6 +181,8 @@ public class PrimaryController implements Initializable{
                         return i;
                     }
                 }
+                break;
+            default:
                 break;
         }
         return 0;

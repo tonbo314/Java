@@ -73,9 +73,9 @@ public class SecondaryController implements Initializable{
     private void musicToplay() throws IOException{
         setView();
         //スライダーに始めと終わりのタイムを設定
-        slider.setMin( m.getStartTime().toSeconds() );
-        slider.setMax( m.getStopTime().toSeconds() );
-        slider.setSnapToTicks( true );
+        slider.setMin(m.getStartTime().toSeconds());
+        slider.setMax(m.getStopTime().toSeconds());
+        slider.setSnapToTicks(true);
         //ov(observableValue自身),変更前(old)後(current)が引数として渡される
         ChangeListener<? super Duration> playListener = ( ov , old , current ) ->
         {
@@ -85,7 +85,7 @@ public class SecondaryController implements Initializable{
             // スライダを移動
             //スライダーが触られている状態であればスライダーの位置が変わらないようにする
             if(!seekSliderIsChanging()){
-                slider.setValue( m.getCurrentTime().toSeconds() );
+                slider.setValue(m.getCurrentTime().toSeconds());
             }
         };
         //なぜかtry,catchじゃないとエラー出る
@@ -148,6 +148,9 @@ public class SecondaryController implements Initializable{
     private void nextMusic() throws IOException{
         number++;
         m.stop();
+        if((al.equals("RADWIMPS")&&(number==13))||(al.equals("RADWIMPS2")&&(number==14))||(al.equals("narimi")&&(number==12))){
+            number=0;
+        }
         //ランダム用
         if(PrimaryController.hantei){
             PrimaryController.random();
